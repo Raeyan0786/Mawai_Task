@@ -1,19 +1,18 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import NotFound from '../pages/NotFound';
 
 // Lazy load pages
 const Home = lazy(() => import('../pages/Home').then(module => ({ default: module.default })));
 
 
 export const router = createBrowserRouter([
-  // {
-  //   path: '/login',
-  //   element: (
-  //     <Suspense fallback={<div>Loading...</div>}>
-  //       <Login />
-  //     </Suspense>
-  //   ),
-  // },
+  {
+    path: '*',
+    element: (
+        <NotFound />
+    ),
+  },
 
   {
     path: '/',
